@@ -47,6 +47,16 @@ function createTask(description, dueDate) {
 // }
 
 // TODO: Now, you try building your own book collection with different books!
+const bookCollection = [];
+bookCollection.push(createBook('Dark Matter', 'Blake Crouch'));
+bookCollection.push(createBook('The Paradox Hotel', 'Rob Hart'));
+bookCollection.push(createBook('Recursion', 'Blake Crouch'));
+bookCollection.push(createBook('Naked Lunch', 'William S. Burroughs'));
+
+// for(let i = 0; i < bookCollection.length; i++) {
+//     bookCollection[i].showDetails();
+// }
+bookCollection.forEach(book => book.showDetails());
 
 
 // EXERCISE 2: Managing a Task List
@@ -65,6 +75,15 @@ function createTask(description, dueDate) {
 // }
 
 // TODO: Now, you try building your own task list and marking each task as completed!
+const taskList = [];
+taskList.push(createTask("Take out trash", '2024-08-19'));
+taskList.push(createTask("Doctor's Appointment", '2024-08-22'))
+taskList.push(createTask("Hubby's B-Day", '2024-08-29'));
+taskList.push(createTask("Jennifer's B-Day", '2024-09-10'));
+
+taskList.forEach(task => task.completeTask());
+
+
 
 
 // EXERCISE 3: Updating Book Titles
@@ -84,6 +103,16 @@ function createTask(description, dueDate) {
 // }
 
 // TODO: Now, you try updating the titles of your own library!
+const library = [];
+library.push(createBook('Artemis', 'Andy Weir'));
+library.push(createBook('Wool', 'Hugh Howey'));
+library.push(createBook('The Haunting of Hill House', 'Shirley Jackson'));
+library.push(createBook('Zoo', 'James Patterson'));
+
+for (let i = 0; i < library.length; i++) {
+    library[i].title += ' - Second Edition'
+    library[i].showDetails();
+}
 
 
 // EXERCISE 4: Rescheduling Tasks
@@ -105,6 +134,21 @@ function createTask(description, dueDate) {
 // }
 
 // TODO: Now, you try rescheduling your own tasks!
+const taskList2 = [];
+taskList2.push(createTask('Submit Reading for Week 4', '2024-08-20'));
+taskList2.push(createTask("Go to Doctor's Appointment", '2024-08-22'));
+taskList2.push(createTask('Smash-a-Thon', '2024-10-03'));
+
+for(let i = 0; i < taskList2.length; i++) {
+    let oldDate = new Date(taskList2[i].dueDate);
+    let newDate = new Date(oldDate.setDate(oldDate.getDate() + 1));
+    // toISOString() returns a date as a string value in ISO format. 
+    // split() a string into substrings using the specified separator and return them as an array.
+    taskList2[i].dueDate = newDate.toISOString().split('T')[0]; 
+    console.log(`New due date for "${taskList2[i].description}": ${taskList2[i].dueDate}`);    
+}                                                        
+                                                               
+
 
 
 // EXERCISE 5: Counting Completed Tasks
@@ -131,6 +175,21 @@ function createTask(description, dueDate) {
 // console.log(`Number of completed tasks: ${completedCount}`);
 
 // TODO: Now, you try counting the completed tasks in your own task list!
+const taskList3 = [];
+taskList3.push(createTask("Shane's B-Day", '2024-08-29'));
+taskList3.push(createTask("Grocery Shopping", '2024-08-22'));
+taskList3.push(createTask("Internet Bill", '2024-08-30'));
+
+taskList3[0].completeTask();
+taskList3[2].completeTask();
+
+let completedCount = 0;
+for(let i = 0; i < taskList3.length; i++) {
+    if(taskList3[i].completed) {
+        completedCount++;
+    }
+}
+console.log(`Number of completed tasks: ${completedCount}`);
 
 
 // Great job! You've completed the exercises.
