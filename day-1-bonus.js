@@ -139,7 +139,7 @@ taskList2.push(createTask('Wash dishes', '2024-08-19'));
 taskList2.forEach(task => {
   let oldDate = new Date(task.dueDate);
   let newDate = new Date(oldDate.setDate(oldDate.getDate() + 1));
-  task.dueDate = newDate.toISOString().split('T')[0];
+  task.dueDate = newDate.toISOString().split('T')[0]; //.split() @ timezone, [0] cut of time. This is so the date will only show the date in ios format w/out timezone and 00:00:00
   console.log(`New Due Date for "${task.description}": ${task.dueDate}`);
 });
 
