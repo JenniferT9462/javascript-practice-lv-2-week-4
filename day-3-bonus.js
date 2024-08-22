@@ -16,7 +16,7 @@ exampleBooks.push({ title: 'Moby Dick', author: 'Herman Melville' });
 
 // the callback for reduce takes 2 arguments: the result of the previous call, and the next item of the array.
 // It returns the new acc to pass to the next iteration.
-function aggregateBooks(acc, book) {
+function aggregateBooks(acc, book) {//the accumulator
   return acc + book.title + ", ";
 }
 
@@ -48,8 +48,11 @@ people.push({ firstName: 'Jane', lastName: 'Smith' });
 people.push({ firstName: 'Emily', lastName: 'Johnson' });
 
 // TODO: Write your code here to aggregate the first names from the `people` array using `reduce`.
-
-
+function aggregatePeople(acc, person, index) {
+  return acc + person.firstName + (index < people.length - 1 ? ', ' : '');
+}
+const firstNames = people.reduce(aggregatePeople, '');
+console.log('First Names: ', firstNames);
 // EXERCISE 2: Aggregating Last Names
 // INSTRUCTIONS: Use the `reduce` method to aggregate all the `lastName` values into a single string, separated by commas.
 // Log the resulting string to the console.
@@ -60,8 +63,11 @@ employees.push({ firstName: 'Bob', lastName: 'White' });
 employees.push({ firstName: 'Charlie', lastName: 'Green' });
 
 // TODO: Write your code here to aggregate the last names from the `employees` array using `reduce`.
-
-
+function aggregateEmployees(acc, person, index) {
+  return acc + person.lastName + (index < people.length - 1 ? ', ' : '');
+}
+const lastNames = employees.reduce(aggregateEmployees, '');
+console.log('Last Names: ', lastNames);
 // EXERCISE 3: Aggregating Product Names
 // INSTRUCTIONS: Use the `reduce` method to aggregate all the `productName` values into a single string, separated by commas.
 // Log the resulting string to the console.
@@ -72,7 +78,11 @@ products.push({ productName: 'Smartphone', price: 800 });
 products.push({ productName: 'Tablet', price: 600 });
 
 // TODO: Write your code here to aggregate the product names from the `products` array using `reduce`.
-
+function aggregateProducts(acc, product, index) {
+  return acc + product.productName + (index < products.length - 1 ? ', ' : '');
+}
+const productNames = products.reduce(aggregateProducts, '');
+console.log('Product Names: ', productNames);
 
 // EXERCISE 4: Aggregating Task Descriptions
 // INSTRUCTIONS: Use the `reduce` method to aggregate all the `description` values into a single string, separated by commas.
@@ -84,7 +94,11 @@ tasks.push({ description: 'Attend meeting', dueDate: '2024-08-21' });
 tasks.push({ description: 'Submit report', dueDate: '2024-08-22' });
 
 // TODO: Write your code here to aggregate the task descriptions from the `tasks` array using `reduce`.
-
+function aggregateTasks(acc, task, index) {
+  return acc + task.description + (index < tasks.length - 1 ? ', ' : '');
+}
+const descriptions = tasks.reduce(aggregateTasks, '');
+console.log('Descriptions: ', descriptions);
 // EXERCISE 5: Aggregating Animal Sounds
 // INSTRUCTIONS: Use the `reduce` method to aggregate all the `sound` values into a single string, separated by commas.
 // Log the resulting string to the console.
@@ -95,7 +109,11 @@ exampleAnimals.push({ species: 'Cat', sound: 'Meow' });
 exampleAnimals.push({ species: 'Cow', sound: 'Moo' });
 
 // TODO: Write your code here to aggregate the animal sounds from the `exampleAnimals` array using `reduce`.
-
+function aggregateAnimals(acc, animal, index) {
+  return acc + animal.sound + (index < exampleAnimals.length - 1 ? ', ' : '');
+}
+const animalSounds = exampleAnimals.reduce(aggregateAnimals, '');
+console.log('Animals Sounds: ', animalSounds);
 // INSTRUCTIONS: Great job! You've completed the exercises.
 // These exercises should have helped you practice using the `reduce` method to aggregate information from objects in arrays.
 // Continue to experiment by creating more arrays and aggregating different types of information using `reduce`.
