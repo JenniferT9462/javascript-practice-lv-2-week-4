@@ -17,7 +17,7 @@ exampleBooks.push({ title: 'Moby Dick', author: 'Herman Melville' });
 // the callback for reduce takes 2 arguments: the result of the previous call, and the next item of the array.
 // It returns the new acc to pass to the next iteration.
 function aggregateBooks(acc, book) {//the accumulator
-  return acc + book.title + ", ";
+  return  acc + book.title + ', '
 }
 
 // reduce take two arguments: a function and the starting value for acc.
